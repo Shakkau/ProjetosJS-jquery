@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>Rolagem de Dados</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Calculadora IMC</h1>
+
+        <div class="input-group mb-3">
+            <input id="quantidades" type="number" class="form-control" placeholder="Quantidade de dados a ser rolado" aria-describedby="sp_quantidade">
+            <span class="input-group-text" id="sp_quantidade">Qtd Dados</span>
+          </div>
+          <div class="input-group mb-3"> 
+            <input id="faces" type="number" class="form-control" placeholder="Quantidade de Faces dos dados" aria-describedby="sp_face">
+            <span class="input-group-text" id="sp_face">Qtd Faces</span>
+          </div>
+          <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button id="calcular" class="btn btn-primary" onclick="">Rolar</button>
+                </div>
+          </div>
+        <div class="row mt-5" hidden="true">
+            <div class="col-sm-6 text-center">
+                <h4>Seus Dados foram:</h4>
+
+            </div>
+            <div class="col-sm-6 text-center">
+                <h4>Soma dos Dados:</h4>
+                <h1 id="Soma"></h1>
+
+                <h4>Maior Dado:</h4>
+                <h1 id="Maior-Dado"></h1>
+            </div>
+        </div>
+</body>
+</html>
