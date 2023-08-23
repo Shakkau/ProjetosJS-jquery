@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
     <title>IMC single page</title>
 </head>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Calculadora IMC</h1>
 
         <div class="input-group mb-3">
-            <input id="altura" type="number" class="form-control" placeholder="Altura em centímetro" aria-describedby="sp_altura">
-            <span class="input-group-text" id="sp_altura">Altura (CM)</span>
-          </div>
-          <div class="input-group mb-3"> 
+            <input id="altura" type="number" class="form-control" placeholder="Altura em centímetro"
+                aria-describedby="sp_altura">
+            <span class="input-group-text bg-secondary" id="sp_altura">Altura (CM)</span>
+        </div>
+        <div class="input-group mb-3">
             <input id="peso" type="number" class="form-control" placeholder="peso em quilos" aria-describedby="sp_peso">
-            <span class="input-group-text" id="sp_peso">Peso (KG)</span>
-          </div>
-          <div class="row">
-                <div class="col-sm-12 text-center">
-                    <button id="calcular" class="btn btn-primary" onclick="calcular()">Calcular</button>
-                </div>
-          </div>
+            <span class="input-group-text bg-secondary" id="sp_peso">Peso (KG)</span>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button id="calcular" class="btn btn-primary" onclick="calcular()">Calcular</button>
+            </div>
+        </div>
         <div class="row mt-5" hidden="true">
             <div class="col-sm-6 text-center">
                 <h4>Seu imc é</h4>
@@ -39,60 +48,67 @@
                             <th>Faixa</th>
                             <th>Categoria</th>
                         </tr>
-                        <tbody>
-                            <tr>
-                                <td>Menor que 18,5</td>
-                                <td>Abaixo do peso</td>
-                            </tr>
-                            <tr>
-                                <td>Entre 18,5 e 24,9</td>
-                                <td>Peso ideal</td>
-                            </tr>  
-                            <tr>
-                                <td>Entre 25 e 29,9</td>
-                                <td>Sobrepeso</td>
-                            </tr>
-                            <tr>
-                                <td>Entre 30 e 34,9</td>
-                                <td>Obesidade Grau 1</td>
-                            </tr>
-                            <tr>
-                                <td>Entre 35 e 39,9</td>
-                                <td>Obesidade Grau 2 (Severa)</td>
-                            </tr>
-                            <tr>
-                                <td>Entre 40 e 45</td>
-                                <td>Obesidade Grau 3 (Mórbida)</td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="color-row1">Menor que 18,5</td>
+                            <td class="color-row1">Abaixo do peso</td>
+                        </tr>
+                        <tr>
+                            <td class="color-row2">Entre 18,5 e 24,9</td>
+                            <td class="color-row2">Peso ideal</td>
+                        </tr>
+                        <tr>
+                            <td class="color-row3">Entre 25 e 29,9</td>
+                            <td class="color-row3">Sobrepeso</td>
+                        </tr>
+                        <tr>
+                            <td class="color-row4">Entre 30 e 34,9</td>
+                            <td class="color-row4">Obesidade Grau 1</td>
+                        </tr>
+                        <tr>
+                            <td class="color-row5">Entre 35 e 39,9</td>
+                            <td class="color-row5">Obesidade Grau 2 (Severa)</td>
+                        </tr>
+                        <tr>
+                            <td class="color-row6">Entre 40 e 45</td>
+                            <td class="color-row6">Obesidade Grau 3 (Mórbida)</td>
+                        </tr>
+                    </tbody>
                     </thead>
                 </table>
             </div>
         </div>
     </div>
     <script type="text/javascript">
-        function calcular(){
+        function calcular() {
             let altura = $("#altura").val();
             let peso = $("#peso").val();
 
-            altura = parseFloat(altura)/100;
+            altura = parseFloat(altura) / 100;
             peso = parseFloat(peso);
 
-            let imc = peso/Math.pow(altura,2);
+            let imc = peso / Math.pow(altura, 2);
             let categoria;
 
-            if(imc < 18.5){
-                categoria = "Abaixo do peso!!"
-            }else if(imc < 25){
-                categoria = "Peso ideal!!"
-            }else if(imc < 30){
-                categoria = "Sobre peso!!"
-            }else if(imc < 35){
-                categoria = "Obesidade Grau 1!!"
-            }else if(imc < 40){
-                categoria = "Obesidade Grau 2!!"
-            }else if(imc < 45){
-                categoria = "Obesidade Grau 2!!"
+            $("td").removeClass("bg-danger bg-success bg-warning bg-danger-subtle bg-warning-subtle");
+            if (imc < 18.5) {
+                categoria = "Abaixo do peso!!";
+                $(".color-row1").addClass("bg-danger");
+            } else if (imc < 25) {
+                categoria = "Peso ideal!!";
+                $(".color-row2").addClass("bg-success");
+            } else if (imc < 30) {
+                categoria = "Sobre peso!!";
+                $(".color-row3").addClass("bg-warning-subtle");
+            } else if (imc < 35) {
+                categoria = "Obesidade Grau 1!!";
+                $(".color-row4").addClass("bg-warning");
+            } else if (imc < 40) {
+                categoria = "Obesidade Grau 2!!";
+                $(".color-row5").addClass("bg-danger-subtle");
+            } else {
+                categoria = "Obesidade Grau 3!!";
+                $(".color-row6").addClass("bg-danger");
             }
 
             $("#imc").text(imc.toFixed(2));
@@ -101,4 +117,5 @@
         }
     </script>
 </body>
+
 </html>
