@@ -9,6 +9,11 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
     <title>Rolagem de Dados</title>
 </head>
 
@@ -19,12 +24,12 @@
         <div class="input-group mb-3">
             <input id="quantidades" type="number" class="form-control" placeholder="Quantidade de dados a ser rolado"
                 aria-describedby="sp_quantidade">
-            <span class="input-group-text" id="sp_quantidade">Qtd Dados</span>
+            <span class="input-group-text bg-secondary" id="sp_quantidade">Qtd Dados</span>
         </div>
         <div class="input-group mb-3">
             <input id="faces" type="number" class="form-control" placeholder="Quantidade de Faces dos dados"
                 aria-describedby="sp_face">
-            <span class="input-group-text" id="sp_face">Qtd Faces</span>
+            <span class="input-group-text bg-secondary" id="sp_face">Qtd Faces</span>
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
@@ -46,7 +51,7 @@
                             <th>Dados girado:</th>
                             <th>Resultado:</th>
                         </tr>
-                        <tbody id="tabela-dados"></tbody>
+                    <tbody id="tabela-dados"></tbody>
                     </thead>
                 </table>
             </div>
@@ -80,6 +85,7 @@
                 $("#Soma").text(somaDado);
                 $(".row").attr("hidden", false);
             }
+
         </script>
 </body>
 
