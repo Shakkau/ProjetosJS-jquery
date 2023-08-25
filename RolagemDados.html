@@ -26,12 +26,12 @@
         <h1 class="text-center">Rolagem de dados</h1>
 
         <div class="input-group mb-3">
-            <input id="quantidades" type="number" class="form-control" placeholder="Quantidade de dados a ser rolado"
+            <input id="quantidades" type="number" class="form-control slider" placeholder="Quantidade de dados a ser rolado"
                 aria-describedby="sp_quantidade">
             <span class="input-group-text bg-secondary" id="sp_quantidade">Qtd Dados</span>
         </div>
         <div class="input-group mb-3">
-            <input id="faces" type="number" class="form-control" placeholder="Quantidade de Faces dos dados"
+            <input id="faces" type="number" class="form-control slider" placeholder="Quantidade de Faces dos dados"
                 aria-describedby="sp_face">
             <span class="input-group-text bg-secondary" id="sp_face">Qtd Faces</span>
         </div>
@@ -40,14 +40,14 @@
                 <button id="calcular" class="btn btn-primary" onclick="Rolar()">Rolar</button>
             </div>
         </div>
-        <div class="row mt-5" hidden="true">
+        <div class="row mt-2" hidden="true">
             <div class="col-sm-6 text-center">
                 <h4>Maior Dado:</h4>
                 <h1 id="Maior-Dado"></h1>
                 <h4>Soma dos Dados:</h4>
                 <h1 id="Soma"></h1>
             </div>
-            <div class="col-sm-6 ">
+            <div class="col-sm-6">
                 <h4>Seus Dados foram:</h4>
                 <table id="tabela" class="table table-bordered">
                     <thead>
