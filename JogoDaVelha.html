@@ -12,12 +12,18 @@
   <style type="text/css">
     td {
       border: 1px solid black !important;
-      height: 100px !important; 
-      width: 100px !important;  
-      font-size: 36px; 
-      text-align: center; 
+      height: 100px !important;
+      width: 100px !important;
+      font-size: 36px;
+      text-align: center;
       vertical-align: middle;
-      background-color: #f0f0f0; 
+      background-color: #f0f0f0;
+    }
+
+    #mensagem {
+      margin: 0;    
+      font-size: 22px;
+      text-align: left;
     }
   </style>
   <title>Jogo da Velha</title>
@@ -29,43 +35,45 @@
       <h1>Jogo da Velha</h1>
       <h4 id="ganhador"></h4>
     </div>
-      <table class="table text-center mt-3">
-        <tbody>
-          <tr>
-            <td id="11"></td>
-            <td id="12"></td>
-            <td id="13"></td>
-          </tr>
-          <tr>
-            <td id="21"></td>
-            <td id="22"></td>
-            <td id="23"></td>
-          </tr>
-          <tr>
-            <td id="31"></td>
-            <td id="32"></td>
-            <td id="33"></td>
-          </tr>
-        </tbody>
-      </table>
+    <p id="mensagem" class="mt-3">Jogador Atual: P1</p>
+    <table class="table text-center">
+      <tbody>
+        
+        <tr>
+          <td id="11"></td>
+          <td id="12"></td>
+          <td id="13"></td>
+        </tr>
+        <tr>
+          <td id="21"></td>
+          <td id="22"></td>
+          <td id="23"></td>
+        </tr>
+        <tr>
+          <td id="31"></td>
+          <td id="32"></td>
+          <td id="33"></td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="row">
-        <div class="col-sm-6 text-center">
-          <button id="Resetar" class="btn btn-primary" onclick="resetar()">
-            IniciarNovamente
-          </button>
-        </div>
-        <div class="col-sm-6 text-center mb-1">
-          <button id="ResetarPartida" class="btn btn-success" onclick="resetarPartida()">
-            ResetarPartida
-          </button>
-        </div>
+    <div class="row">
+      <div class="col-sm-6 text-center">
+        <button id="Resetar" class="btn btn-primary" onclick="resetar()">
+          IniciarNovamente
+        </button>
       </div>
-      <div class="row mt-5">
-        <h2 id="player1" class="col-sm-6">Número de rodadas vencidas P1: 0</h2>
-        <h2 id="player2" class="col-sm-6">Número de rodadas vencidas P2: 0</h2>
+      <div class="col-sm-6 text-center mb-1">
+        <button id="ResetarPartida" class="btn btn-success" onclick="resetarPartida()">
+          ResetarPartida
+        </button>
       </div>
-    
+    </div>
+    <div class="row mt-4">
+      <h2 id="player1" class="col-sm-6">Número de rodadas vencidas P1: 0</h2>
+      <h2 id="player2" class="col-sm-6">Número de rodadas vencidas P2: 0</h2>
+    </div>
+
   </div>
 
 
@@ -78,14 +86,16 @@
 
     $("td").click(function () {
       if (!gameOver && $(this).text() != "X" && $(this).text() != "O") {
-        if (currentPlayer == 1) {
+        if (currentPlayer == 1) { 
           $(this).text("X");
           checkWinner();
           currentPlayer = 2;
+          $("#mensagem").text("Jogador Atual: P2");             
         } else {
           $(this).text("O");
           checkWinner();
           currentPlayer = 1;
+          $("#mensagem").text("Jogador Atual: P1");
         }
         totalJogadas += 1;
         checkDraw();
@@ -143,6 +153,7 @@
       currentPlayer = 1;
       totalJogadas = 0;
 
+      $("#mensagem").text("Jogador Atual: P1");
       $("td").text("").removeClass("bg-success-subtle");
       $("#ganhador").empty();
       gameOver = false;
@@ -154,6 +165,7 @@
       totalJogadas = 0;
       currentPlayer = 1;
 
+      $("#mensagem").text("Jogador Atual: P1");
       $("#ganhador").empty();
       $("td").text("").removeClass("bg-success-subtle");
       $("#player1").text("Número de rodadas vencidas P1: " + pontosPlayer1);
